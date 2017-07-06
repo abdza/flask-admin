@@ -538,3 +538,6 @@ msgstr "Eksport"
 
 msgid "Action"
 msgstr "Tindakan"
+
+msgid "Create New Record"
+msgstr "Buat Rekod Baru"
