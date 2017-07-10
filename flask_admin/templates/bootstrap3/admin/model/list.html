@@ -74,12 +74,11 @@
                         <th class="col-md-1">&nbsp;</th>
                         {% endif %}
                     {% endblock %}
-                    {% set column = 0 %}
                     {% for c, name in list_columns %}
                     <th class="column-header col-{{c}}">
                         {% if admin_view.is_sortable(c) %}
-                            {% if sort_column == column %}
-                                <a href="{{ sort_url(column, True) }}" title="{{ _gettext('Sort by %(name)s', name=name) }}">
+                            {% if sort_column == loop.index0 %}
+                                <a href="{{ sort_url(loop.index0, True) }}" title="{{ _gettext('Sort by %(name)s', name=name) }}">
                                     {{ name }}
                                     {% if sort_desc %}
                                         <span class="fa fa-chevron-up glyphicon glyphicon-chevron-up"></span>
@@ -88,7 +87,7 @@
                                     {% endif %}
                                 </a>
                             {% else %}
-                                <a href="{{ sort_url(column) }}" title="{{ _gettext('Sort by %(name)s', name=name) }}">{{ name }}</a>
+                                <a href="{{ sort_url(loop.index0) }}" title="{{ _gettext('Sort by %(name)s', name=name) }}">{{ name }}</a>
                             {% endif %}
                         {% else %}
                             {{ name }}
@@ -100,7 +99,6 @@
                             ></a>
                         {% endif %}
                     </th>
-                    {% set column = column + 1 %}
                     {% endfor %}
                 {% endblock %}
             </tr>
