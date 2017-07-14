@@ -244,6 +244,37 @@
   <script src="{{ admin_static.url(filename='admin/js/form.js', v='1.0.1') }}"></script>
 {% endmacro %}
 
+{% macro dropdown_js(form) %}
+<script>
+{% if admin_view.form_drop_down is defined %}
+	function updateoptions(target,options){
+		var newoptions = '';
+		for(var i=0;i<options.length;i++){
+			newoptions += '<option value="' + options[i].optionValue + '">' + options[i].optionDisplay + '</option>';
+		};
+		$(target).html(newoptions);
+		$(target).val($(target + ' option:first-child').val()).trigger('change');
+	}
+{% endif %}
+{% for field in form %}
+	{% if field.id in admin_view.form_drop_down %}
+		$('#{{field.id}}').on('change',function(){
+			{% for targetdrop in admin_view.form_drop_down[field.id] %}
+			$.getJSON("{{admin_view.form_drop_down[field.id][targetdrop]}}/" + $(this).val(), function(j){
+				updateoptions('#{{targetdrop}}',j);
+			});
+			{% endfor %}
+		});
+		{% for targetdrop in admin_view.form_drop_down[field.id] %}
+		$.getJSON("{{admin_view.form_drop_down[field.id][targetdrop]}}/" + $('#{{field.id}}').val(), function(j){
+			updateoptions('#{{targetdrop}}',j);
+		});
+		{% endfor %}
+	{% endif %}
+{% endfor %}
+</script>
+{% endmacro %}
+
 {% macro extra() %}
   {% if admin_view.can_create %}
   <input name="_add_another" type="submit" class="btn btn-default" value="{{ _gettext('Save and Add Another') }}" />
