@@ -2,7 +2,6 @@ import logging
 import warnings
 import inspect
 
-from speaklater import is_lazy_string, make_lazy_string
 from sqlalchemy.orm.attributes import InstrumentedAttribute
 from sqlalchemy.orm import joinedload, aliased
 from sqlalchemy.sql.expression import desc
@@ -53,7 +52,7 @@ class ModelView(BaseModelView):
     """
 
     column_select_related_list = ObsoleteAttr('column_select_related',
-                                             'list_select_related',
+                                              'list_select_related',
                                               None)
     """
         List of parameters for SQLAlchemy `subqueryload`. Overrides `column_auto_select_related`
@@ -595,7 +594,7 @@ class ModelView(BaseModelView):
                     if column.foreign_keys or column.primary_key:
                         continue
 
-                    visible_name = '%s / %s' % (self.get_column_name(attr.prop.table.name),
+                    visible_name = '%s / %s' % (self.get_column_name(attr.prop.target.name),
                                                 self.get_column_name(p.key))
 
                     type_name = type(column.type).__name__
@@ -628,25 +627,35 @@ class ModelView(BaseModelView):
 
                 column = columns[0]
 
+            # If filter related to relation column (represented by
+            # relation_name.target_column) we collect here relation name
+            joined_column_name = None
+            if isinstance(name, string_types) and '.' in name:
+                joined_column_name = name.split('.')[0]
+
             # Join not needed for hybrid properties
             if (not is_hybrid_property and tools.need_join(self.model, column.table) and
                     name not in self.column_labels):
-                visible_name = '%s / %s' % (
-                    self.get_column_name(column.table.name),
-                    self.get_column_name(column.name)
-                )
+                if joined_column_name:
+                    visible_name = '%s / %s / %s' % (
+                        joined_column_name,
+                        self.get_column_name(column.table.name),
+                        self.get_column_name(column.name)
+                    )
+                else:
+                    visible_name = '%s / %s' % (
+                        self.get_column_name(column.table.name),
+                        self.get_column_name(column.name)
+                    )
             else:
                 if not isinstance(name, string_types):
                     visible_name = self.get_column_name(name.property.key)
                 else:
-                    column_name = self.get_column_name(name)
-
-                    def prettify():
-                        return column_name.replace('.', ' / ')
-                    if is_lazy_string(column_name):
-                        visible_name = make_lazy_string(prettify)
+                    if self.column_labels and name in self.column_labels:
+                        visible_name = self.column_labels[name]
                     else:
-                        visible_name = prettify()
+                        visible_name = self.get_column_name(name)
+                        visible_name = visible_name.replace('.', ' / ')
 
             type_name = type(column.type).__name__
 
@@ -657,10 +666,19 @@ class ModelView(BaseModelView):
                 options=self.column_choices.get(name),
             )
 
+            key_name = column
+            # In case of filter related to relation column filter key
+            # must be named with relation name (to prevent following same
+            # target column to replace previous)
+            if joined_column_name:
+                key_name = "{0}.{1}".format(joined_column_name, column)
+                for f in flt:
+                    f.key_name = key_name
+
             if joins:
-                self._filter_joins[column] = joins
+                self._filter_joins[key_name] = joins
             elif not is_hybrid_property and tools.need_join(self.model, column.table):
-                self._filter_joins[column] = [column.table]
+                self._filter_joins[key_name] = [column.table]
 
             return flt
 
@@ -813,12 +831,12 @@ class ModelView(BaseModelView):
                 if isinstance(column, tuple):
                     query = query.order_by(*map(desc, column))
                 else:
-	                query = query.order_by(desc(column))
+                    query = query.order_by(desc(column))
             else:
                 if isinstance(column, tuple):
                     query = query.order_by(*column)
                 else:
-	                query = query.order_by(column)
+                    query = query.order_by(column)
 
         return query, joins
 
@@ -900,7 +918,9 @@ class ModelView(BaseModelView):
 
             # Figure out joins
             if isinstance(flt, sqla_filters.BaseSQLAFilter):
-                path = self._filter_joins.get(flt.column, [])
+                # If no key_name is specified, use filter column as filter key
+                filter_key = flt.key_name or flt.column
+                path = self._filter_joins.get(filter_key, [])
 
                 query, joins, alias = self._apply_path_joins(query, joins, path, inner_join=False)
 
@@ -920,7 +940,8 @@ class ModelView(BaseModelView):
                 spec = inspect.getargspec(flt.apply)
 
                 if len(spec.args) == 3:
-                    warnings.warn('Please update your custom filter %s to include additional `alias` parameter.' % repr(flt))
+                    warnings.warn('Please update your custom filter %s to '
+                                  'include additional `alias` parameter.' % repr(flt))
                 else:
                     raise
 
