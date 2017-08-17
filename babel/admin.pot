@@ -9,22 +9,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Flask-Admin VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-<<<<<<< HEAD
-"POT-Creation-Date: 2017-07-06 23:42+0800\n"
-=======
-"POT-Creation-Date: 2017-02-07 00:19-0600\n"
->>>>>>> f5628d79d47db177682fed75a8ff54c234e2a543
+"POT-Creation-Date: 2017-08-18 04:27+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-<<<<<<< HEAD
 "Generated-By: Babel 2.4.0\n"
-=======
-"Generated-By: Babel 2.1.1\n"
->>>>>>> f5628d79d47db177682fed75a8ff54c234e2a543
 
 #: ../flask_admin/base.py:440
 msgid "Home"
@@ -72,7 +64,7 @@ msgstr ""
 #: ../flask_admin/contrib/fileadmin/__init__.py:1000
 #: ../flask_admin/contrib/fileadmin/__init__.py:1047
 #: ../flask_admin/contrib/fileadmin/__init__.py:1099
-#: ../flask_admin/model/base.py:2168
+#: ../flask_admin/model/base.py:2183
 msgid "Permission denied."
 msgstr ""
 
@@ -204,13 +196,8 @@ msgstr ""
 msgid "Editing %(path)s"
 msgstr ""
 
-<<<<<<< HEAD
-#: ../flask_admin/contrib/fileadmin/__init__.py:1133
-#: ../flask_admin/contrib/mongoengine/view.py:661
-=======
 #: ../flask_admin/contrib/fileadmin/__init__.py:1163
 #: ../flask_admin/contrib/mongoengine/view.py:658
->>>>>>> f5628d79d47db177682fed75a8ff54c234e2a543
 #: ../flask_admin/contrib/peewee/view.py:487
 #: ../flask_admin/contrib/pymongo/view.py:384
 #: ../flask_admin/contrib/sqla/view.py:1149
@@ -327,8 +314,8 @@ msgstr ""
 #: ../flask_admin/contrib/mongoengine/view.py:596
 #: ../flask_admin/contrib/peewee/view.py:454
 #: ../flask_admin/contrib/pymongo/view.py:341
-#: ../flask_admin/contrib/sqla/view.py:1104 ../flask_admin/model/base.py:2305
-#: ../flask_admin/model/base.py:2313 ../flask_admin/model/base.py:2315
+#: ../flask_admin/contrib/sqla/view.py:1104 ../flask_admin/model/base.py:2320
+#: ../flask_admin/model/base.py:2328 ../flask_admin/model/base.py:2330
 #, python-format
 msgid "Failed to update record. %(error)s"
 msgstr ""
@@ -341,36 +328,24 @@ msgstr ""
 msgid "Failed to delete record. %(error)s"
 msgstr ""
 
-<<<<<<< HEAD
-#: ../flask_admin/contrib/mongoengine/view.py:662
-=======
 #: ../flask_admin/contrib/mongoengine/view.py:659
->>>>>>> f5628d79d47db177682fed75a8ff54c234e2a543
 #: ../flask_admin/contrib/peewee/view.py:488
 #: ../flask_admin/contrib/pymongo/view.py:385
 #: ../flask_admin/contrib/sqla/view.py:1150
 msgid "Are you sure you want to delete selected records?"
 msgstr ""
 
-<<<<<<< HEAD
-#: ../flask_admin/contrib/mongoengine/view.py:671
-=======
 #: ../flask_admin/contrib/mongoengine/view.py:668
->>>>>>> f5628d79d47db177682fed75a8ff54c234e2a543
 #: ../flask_admin/contrib/peewee/view.py:505
 #: ../flask_admin/contrib/pymongo/view.py:395
-#: ../flask_admin/contrib/sqla/view.py:1166 ../flask_admin/model/base.py:2118
+#: ../flask_admin/contrib/sqla/view.py:1166 ../flask_admin/model/base.py:2133
 #, python-format
 msgid "Record was successfully deleted."
 msgid_plural "%(count)s records were successfully deleted."
 msgstr[0] ""
 msgstr[1] ""
 
-<<<<<<< HEAD
-#: ../flask_admin/contrib/mongoengine/view.py:677
-=======
 #: ../flask_admin/contrib/mongoengine/view.py:674
->>>>>>> f5628d79d47db177682fed75a8ff54c234e2a543
 #: ../flask_admin/contrib/peewee/view.py:511
 #: ../flask_admin/contrib/pymongo/view.py:400
 #: ../flask_admin/contrib/sqla/view.py:1174
@@ -439,24 +414,24 @@ msgstr ""
 msgid "Invalid Filter Value: %(value)s"
 msgstr ""
 
-#: ../flask_admin/model/base.py:1984
+#: ../flask_admin/model/base.py:1999
 msgid "Record was successfully created."
 msgstr ""
 
-#: ../flask_admin/model/base.py:2028 ../flask_admin/model/base.py:2080
-#: ../flask_admin/model/base.py:2113 ../flask_admin/model/base.py:2297
+#: ../flask_admin/model/base.py:2043 ../flask_admin/model/base.py:2095
+#: ../flask_admin/model/base.py:2128 ../flask_admin/model/base.py:2312
 msgid "Record does not exist."
 msgstr ""
 
-#: ../flask_admin/model/base.py:2037 ../flask_admin/model/base.py:2301
+#: ../flask_admin/model/base.py:2052 ../flask_admin/model/base.py:2316
 msgid "Record was successfully saved."
 msgstr ""
 
-#: ../flask_admin/model/base.py:2222
+#: ../flask_admin/model/base.py:2237
 msgid "Tablib dependency not installed."
 msgstr ""
 
-#: ../flask_admin/model/base.py:2249
+#: ../flask_admin/model/base.py:2264
 #, python-format
 msgid "Export type \"%(type)s not supported."
 msgstr ""
@@ -481,10 +456,13 @@ msgid "View Record"
 msgstr ""
 
 #: ../flask_admin/model/template.py:95 ../flask_admin/model/template.py:102
-#: ../flask_admin/model/template.py:109
 #: ../flask_admin/templates/bootstrap2/admin/model/modals/edit.html:22
 #: ../flask_admin/templates/bootstrap3/admin/model/modals/edit.html:11
 msgid "Edit Record"
+msgstr ""
+
+#: ../flask_admin/model/template.py:109
+msgid "Delete Record"
 msgstr ""
 
 #: ../flask_admin/model/widgets.py:61
@@ -497,22 +475,22 @@ msgid "With selected"
 msgstr ""
 
 #: ../flask_admin/templates/bootstrap2/admin/lib.html:200
-#: ../flask_admin/templates/bootstrap3/admin/lib.html:190
+#: ../flask_admin/templates/bootstrap3/admin/lib.html:192
 msgid "Save"
 msgstr ""
 
 #: ../flask_admin/templates/bootstrap2/admin/lib.html:205
-#: ../flask_admin/templates/bootstrap3/admin/lib.html:195
+#: ../flask_admin/templates/bootstrap3/admin/lib.html:197
 msgid "Cancel"
 msgstr ""
 
 #: ../flask_admin/templates/bootstrap2/admin/lib.html:256
-#: ../flask_admin/templates/bootstrap3/admin/lib.html:247
+#: ../flask_admin/templates/bootstrap3/admin/lib.html:291
 msgid "Save and Add Another"
 msgstr ""
 
 #: ../flask_admin/templates/bootstrap2/admin/lib.html:259
-#: ../flask_admin/templates/bootstrap3/admin/lib.html:250
+#: ../flask_admin/templates/bootstrap3/admin/lib.html:294
 msgid "Save and Continue Editing"
 msgstr ""
 
@@ -628,31 +606,31 @@ msgstr ""
 msgid "Export"
 msgstr ""
 
-#: ../flask_admin/templates/bootstrap2/admin/model/layout.html:38
-#: ../flask_admin/templates/bootstrap3/admin/model/layout.html:38
+#: ../flask_admin/templates/bootstrap2/admin/model/layout.html:50
+#: ../flask_admin/templates/bootstrap3/admin/model/layout.html:50
 msgid "Apply"
 msgstr ""
 
-#: ../flask_admin/templates/bootstrap2/admin/model/layout.html:40
-#: ../flask_admin/templates/bootstrap3/admin/model/layout.html:40
+#: ../flask_admin/templates/bootstrap2/admin/model/layout.html:52
+#: ../flask_admin/templates/bootstrap3/admin/model/layout.html:52
 msgid "Reset Filters"
 msgstr ""
 
-#: ../flask_admin/templates/bootstrap2/admin/model/layout.html:59
-#: ../flask_admin/templates/bootstrap2/admin/model/layout.html:66
-#: ../flask_admin/templates/bootstrap3/admin/model/layout.html:59
-#: ../flask_admin/templates/bootstrap3/admin/model/layout.html:64
+#: ../flask_admin/templates/bootstrap2/admin/model/layout.html:77
+#: ../flask_admin/templates/bootstrap2/admin/model/layout.html:84
+#: ../flask_admin/templates/bootstrap3/admin/model/layout.html:77
+#: ../flask_admin/templates/bootstrap3/admin/model/layout.html:82
 msgid "Search"
 msgstr ""
 
-#: ../flask_admin/templates/bootstrap2/admin/model/layout.html:74
-#: ../flask_admin/templates/bootstrap2/admin/model/layout.html:77
-#: ../flask_admin/templates/bootstrap2/admin/model/layout.html:78
-#: ../flask_admin/templates/bootstrap2/admin/model/layout.html:79
-#: ../flask_admin/templates/bootstrap3/admin/model/layout.html:72
-#: ../flask_admin/templates/bootstrap3/admin/model/layout.html:75
-#: ../flask_admin/templates/bootstrap3/admin/model/layout.html:76
-#: ../flask_admin/templates/bootstrap3/admin/model/layout.html:77
+#: ../flask_admin/templates/bootstrap2/admin/model/layout.html:92
+#: ../flask_admin/templates/bootstrap2/admin/model/layout.html:95
+#: ../flask_admin/templates/bootstrap2/admin/model/layout.html:96
+#: ../flask_admin/templates/bootstrap2/admin/model/layout.html:97
+#: ../flask_admin/templates/bootstrap3/admin/model/layout.html:90
+#: ../flask_admin/templates/bootstrap3/admin/model/layout.html:93
+#: ../flask_admin/templates/bootstrap3/admin/model/layout.html:94
+#: ../flask_admin/templates/bootstrap3/admin/model/layout.html:95
 msgid "items"
 msgstr ""
 

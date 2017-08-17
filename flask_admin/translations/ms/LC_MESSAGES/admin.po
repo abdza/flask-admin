@@ -65,6 +65,13 @@ msgstr "Kebenaran ditolak."
 msgid "File uploading is disabled."
 msgstr "Muatnaik fail dilumpuhkan."
 
+#: ../flask_admin/templates/bootstrap2/admin/model/details.html:21
+#: ../flask_admin/templates/bootstrap2/admin/model/edit.html:26
+#: ../flask_admin/templates/bootstrap3/admin/model/details.html:21
+#: ../flask_admin/templates/bootstrap3/admin/model/edit.html:26
+msgid "Details"
+msgstr "Rumusan"
+
 #: ../flask_admin/contrib/fileadmin.py:646
 #, python-format
 msgid "Failed to save file: %(error)s"
@@ -171,7 +178,7 @@ msgstr "Kebolehan memadam dilumpuhkan."
 
 #: ../flask_admin/contrib/fileadmin.py:898
 msgid "Edit"
-msgstr "Ubah"
+msgstr "Kemaskini"
 
 #: ../flask_admin/contrib/rediscli.py:125
 msgid "Cli: Invalid command."
@@ -452,7 +459,7 @@ msgstr "Senarai"
 #: ../flask_admin/templates/bootstrap3/admin/model/create.html:20
 #: ../flask_admin/templates/bootstrap3/admin/model/list.html:20
 msgid "Create"
-msgstr "Buat"
+msgstr "Rekod Baru"
 
 #: ../flask_admin/templates/bootstrap2/admin/model/edit.html:5
 #: ../flask_admin/templates/bootstrap3/admin/model/edit.html:5
