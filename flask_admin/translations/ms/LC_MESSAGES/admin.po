@@ -70,7 +70,7 @@ msgstr "Muatnaik fail dilumpuhkan."
 #: ../flask_admin/templates/bootstrap3/admin/model/details.html:21
 #: ../flask_admin/templates/bootstrap3/admin/model/edit.html:26
 msgid "Details"
-msgstr "Rumusan"
+msgstr "Maklumat Terperinci"
 
 #: ../flask_admin/contrib/fileadmin.py:646
 #, python-format
@@ -479,7 +479,7 @@ msgstr "Tambah"
 #: ../flask_admin/templates/bootstrap2/admin/model/layout.html:3
 #: ../flask_admin/templates/bootstrap3/admin/model/layout.html:3
 msgid "Add Filter"
-msgstr "Tambah Tapisan"
+msgstr "Tambah Filter"
 
 #: ../flask_admin/templates/bootstrap2/admin/model/layout.html:17
 #: ../flask_admin/templates/bootstrap3/admin/model/layout.html:17
