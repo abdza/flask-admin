@@ -496,7 +496,7 @@ msgstr "Tetapkan semula Tapisan"
 #: ../flask_admin/templates/bootstrap3/admin/model/layout.html:38
 #: ../flask_admin/templates/bootstrap3/admin/model/layout.html:43
 msgid "Search"
-msgstr "Cari"
+msgstr "Carian"
 
 #: ../flask_admin/templates/bootstrap2/admin/model/list.html:20
 #: ../flask_admin/templates/bootstrap3/admin/model/list.html:20
@@ -548,3 +548,9 @@ msgstr "Tindakan"
 
 msgid "Create New Record"
 msgstr "Buat Rekod Baru"
+
+msgid "View Record"
+msgstr "Papar Rekod"
+
+msgid "Edit Record"
+msgstr "Kemaskini Rekod"
