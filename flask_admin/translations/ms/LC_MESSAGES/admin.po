@@ -484,7 +484,7 @@ msgstr "Tambah Filter"
 #: ../flask_admin/templates/bootstrap2/admin/model/layout.html:17
 #: ../flask_admin/templates/bootstrap3/admin/model/layout.html:17
 msgid "Apply"
-msgstr "Apply"
+msgstr "Hantar"
 
 #: ../flask_admin/templates/bootstrap2/admin/model/layout.html:19
 #: ../flask_admin/templates/bootstrap3/admin/model/layout.html:19
