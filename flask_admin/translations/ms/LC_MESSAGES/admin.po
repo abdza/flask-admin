@@ -459,7 +459,7 @@ msgstr "Senarai"
 #: ../flask_admin/templates/bootstrap3/admin/model/create.html:20
 #: ../flask_admin/templates/bootstrap3/admin/model/list.html:20
 msgid "Create"
-msgstr "Rekod Baru"
+msgstr "Tambah"
 
 #: ../flask_admin/templates/bootstrap2/admin/model/edit.html:5
 #: ../flask_admin/templates/bootstrap3/admin/model/edit.html:5
