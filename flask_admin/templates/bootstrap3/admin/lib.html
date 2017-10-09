@@ -271,13 +271,21 @@
 	{% if field.id in admin_view.form_drop_down %}
 		$('#{{field.id}}').on('change',function(){
 			{% for targetdrop in admin_view.form_drop_down[field.id] %}
+			{% if targetdrop in admin_view.form_drop_down_id and request.args.get('id') %}
+			$.getJSON("{{admin_view.form_drop_down[field.id][targetdrop]}}/" + $(this).val() + "/{{request.args.get('id')}}", function(j){
+			{% else %}
 			$.getJSON("{{admin_view.form_drop_down[field.id][targetdrop]}}/" + $(this).val(), function(j){
+			{% endif %}
 				updateoptions('#{{targetdrop}}',j,{{form[targetdrop].data.id}});
 			});
 			{% endfor %}
 		});
 		{% for targetdrop in admin_view.form_drop_down[field.id] %}
+		{% if targetdrop in admin_view.form_drop_down_id and request.args.get('id') %}
+		$.getJSON("{{admin_view.form_drop_down[field.id][targetdrop]}}/" + $('#{{field.id}}').val() + "/{{request.args.get('id')}}", function(j){
+		{% else %}
 		$.getJSON("{{admin_view.form_drop_down[field.id][targetdrop]}}/" + $('#{{field.id}}').val(), function(j){
+		{% endif %}
 			updateoptions('#{{targetdrop}}',j,{{form[targetdrop].data.id}});
 		});
 		{% endfor %}
